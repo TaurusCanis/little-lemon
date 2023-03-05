@@ -1,0 +1,62 @@
+* {
+
+	margin: 0;
+	padding: 0;
+}
+
+html {
+}
+
+html, body, #root, .App {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+body, #root, .App {
+}
+
+body {
+	width: 100%;	
+	font-family: 'Karla', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {	
+	font-family: 'Markazi Text', serif;
+}
+
+header, footer {
+	padding: 15px;
+}
+
+.App > nav {
+	background-color: #333333;
+	padding: 15px;
+}
+
+nav, ul {
+	list-style: none;
+}
+
+.App > nav ul li a {	
+	color: white;
+	text-decoration: none;
+}
+
+.App > nav ul li:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+#specials {
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	display: flex;
+	flex-direction: column-reverse;
+	background-color: #EDEFEE;
+}
