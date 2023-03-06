@@ -2,8 +2,10 @@ import greek_salad from "../assets/images/GreekSalad_Small";
 import bruschetta from "../assets/images/Bruchetta_small";
 import rigatoni from "../assets/images/Rigatoni_small";
 import SpecialsCard from "./SpecialsCard";
+import SmallPlates from "../assets/images/SmallPlates_small";
+import Testimonials from "./Testimonials";
 
-export default function Main() {
+export default function Homepage() {
 	const specials = [
 		{
 			"name": "Greek Salad",
@@ -32,6 +34,7 @@ export default function Main() {
 				<h2>Chicago</h2>
 				<p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
 				<button>Reserve a Table</button>
+				<img src={SmallPlates} />
 			</section>
 			<section id="specials">
 				<h2>Specials</h2>
@@ -40,6 +43,7 @@ export default function Main() {
 				<SpecialsCard data={specials[1]} />
 				<SpecialsCard data={specials[2]} />
 			</section>
+			<Testimonials />
 		</main>
 	);
 }

@@ -12,9 +12,20 @@ html, body, #root, .App {
 }
 
 img {
-	max-width: 100%;
+	width: 100%;
 }
 
+
+button {
+	width: 50%;
+	background-color: #f4ce14;
+	margin: 10px;
+	padding: 10px 5px;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+	align-self: center;
+}
 
 body, #root, .App {
 }
@@ -26,6 +37,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {	
 	font-family: 'Markazi Text', serif;
+	padding: 10px 0;
 }
 
 header, footer {
@@ -41,19 +53,88 @@ nav, ul {
 	list-style: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 .App > nav ul li a {	
 	color: white;
-	text-decoration: none;
 }
 
 .App > nav ul li:not(:last-child) {
 	margin-bottom: 5px;
 }
 
+#hero {
+	background-color: #495e57;
+}
+
+#hero h1 {
+	color: #f4ce14;
+}
+
+#hero h2, #hero p {
+	color: white;
+}
+
+#hero img {
+	margin-top: 10px;
+}
+
 #specials {
 	display: flex;
 	flex-direction: column;
 }
+
+#specials article {
+	background-color: #EDEFEE;
+	padding-bottom: 10px;
+}
+
+.specials-item-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10px;
+}
+
+.price {
+	color: #ee9972;
+}
+
+article p {
+	padding: 0 5px;
+}
+
+article a {
+	display: inline-block;
+	padding: 15px;
+}
+
+.fa-icon {
+	margin-left: 5px;
+}
+
+#testimonials {
+	background-color: #495e57;
+	color: white;
+	padding: 15px 0;
+}
+
+.testimonials-container {
+	overflow: auto;
+	white-space: nowrap;
+}
+
+#testimonials article {
+	display: inline-block;
+	border: solid white 1px;
+	border-radius: 5px;
+	max-width: 70%;
+	width: 70%;
+	margin: 15px;
+	padding: 15px;
+}
+
 
 footer {
 	display: flex;
