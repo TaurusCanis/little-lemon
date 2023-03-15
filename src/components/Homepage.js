@@ -4,6 +4,7 @@ import rigatoni from "../assets/images/Rigatoni_small";
 import SpecialsCard from "./SpecialsCard";
 import SmallPlates from "../assets/images/SmallPlates_small";
 import Testimonials from "./Testimonials";
+import ButtonLink from "./ButtonLink";
 
 export default function Homepage() {
 	const specials = [
@@ -33,7 +34,7 @@ export default function Homepage() {
 				<h1>Little Lemon</h1>
 				<h2>Chicago</h2>
 				<p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-				<button>Reserve a Table</button>
+				<ButtonLink url="/booking">Reserve a Table</ButtonLink>
 				<img src={SmallPlates} />
 			</section>
 			<section id="specials">
