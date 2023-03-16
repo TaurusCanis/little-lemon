@@ -5,6 +5,11 @@
 }
 
 html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
 }
 
 html, body, #root, .App {
@@ -133,6 +138,62 @@ article a {
 	width: 70%;
 	margin: 15px;
 	padding: 15px;
+}
+
+form {
+	margin: 5px;
+}
+
+form * {
+	display: block;
+}
+
+form label {
+	text-align: left;
+	margin-top: 5px;
+}
+
+form input, form select {
+	width: 100%;
+}
+
+form input[type=submit] {
+	margin: 10px 0;
+}
+
+form select option {
+	width: 100%;
+	background-color: yellow;
+}
+
+form #guests > span {
+	display: inline-block; 
+	margin: 5px;
+}
+
+form #guests-down:focus {
+	outline: medium auto currentColor;
+	outline: medium auto invert;
+	outline: 5px auto -webkit-focus-ring-color;
+}
+
+form .guests-btn:before {
+	content: '';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+	border-radius: 100%;
+}
+
+form #guests-up:before {
+	content: '\FF0B';
+}
+
+form #guests-down:before {
+	content: '\FF0D';
 }
 
 

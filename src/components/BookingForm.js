@@ -1,4 +1,4 @@
-import {useState,useReducer} from "react";
+import {useState,useReducer,useRef} from "react";
 import {fetchAPI, submitAPI} from "./bookingAPI";
 import {useNavigate} from "react-router-dom";
 
@@ -12,7 +12,7 @@ export function updateTimes(state, action) {
 				date: newDate,
 				times: times
 			};
-		}	
+		}
 	}
 	throw Error('Unknown action: ' + action.type);
 }
@@ -30,9 +30,32 @@ export default function BookingForm(props) {
 	const [formFields, setFormFields] = useState({
 		"res-date": new Date().toISOString().split("T")[0],
 		"res-time": "",
-		"guests": "1",
+		"guests": 1,
 		"occasion": ""
 	});
+
+	const guestsValues = Array.from({length: 10}, (_,i) => i + 1);
+
+	const guestsRef = useRef(null);
+
+	const isValid = () => {
+		for (const [k, v] of Object.entries(formFields)) {
+			console.log(k, ": ", v);
+			if (!v) return false;
+		}
+		return true;
+	}
+
+	const updateGuests = (e, b) => {
+		if (b === -1 && formFields.guests === 1) return;
+		if (b === 1 && formFields.guests === 10) return;
+		if (e.type == "click" || (e.type == "keydown" && e.key === "Enter")) {
+			setFormFields({
+				...formFields,
+				guests: formFields.guests + b
+			});
+		}
+	}	
 
 	const handleFieldChange = (e) => {
 		setFormFields({
@@ -60,14 +83,23 @@ export default function BookingForm(props) {
 					<option key={at} value={at}>{at}</option>
 				))}
 			</select>		
-			<label htmlFor="guests">Number of Guests</label>
-			<input type="number" placeholder="1" min="1" max="10" id="guests" />
+			<label htmlFor="guests" onClick={(e) => guestsRef.current.focus()}>Number of Guests</label>
+			{/* <select name="guests">
+				{ guestsValues.map(v => (
+					<option key={v} value={v}>{v}</option>
+				))}
+			</select> */}
+			<div id="guests">
+				<span ref={guestsRef} tabindex="0" class="guests-btn" id="guests-down" data-testid="guests-down" onClick={(e) => updateGuests(e, -1)} onKeyDown={(e) => updateGuests(e, -1)}></span>
+				<span data-testid="guests-val">{formFields.guests}</span>
+				<span tabindex="0" class="guests-btn" id="guests-up" data-testid="guests-up" onClick={(e) => updateGuests(e, 1)} onKeyDown={(e) => updateGuests(e, 1)}></span>
+			</div>
 			<label htmlFor="occasion">Occasion</label>
-			<select id="occasion">
+			<select id="occasion" onChange={(e) => setFormFields({ ...formFields, 'occasion': e.target.value })}>
 				<option>Birthday</option>
 				<option>Anniversay</option>
 			</select>	
-			<input type="submit" value="Book Now" />
+			<input type="submit" value="Book Now" disabled={!isValid()}/>
 		</form>
 	);
 }
