@@ -3,7 +3,7 @@ import { faPersonBiking } from '@fortawesome/free-solid-svg-icons';
 
 export default function SpecialsCard(props) {
 	return (
-		<article>
+		<article class="specials-card">
 			<img src={props.data.img} />
 			<div class="specials-item-header">
 				<h3>{props.data.name}</h3>

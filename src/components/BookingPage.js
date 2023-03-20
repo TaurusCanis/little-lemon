@@ -14,6 +14,7 @@ export default function Booking() {
 	const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 	return (
 		<main>
+			<h1>Make a Reservation</h1>
 			<BookingForm availableTimes={availableTimes} dispatch={dispatch} />
 		</main>
 	);

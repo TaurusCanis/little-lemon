@@ -7,22 +7,25 @@ import BookingPage from "./components/BookingPage";
 import ConfirmedBooking from "./components/ConfirmedBooking";
 import Footer from "./components/Footer";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import {useState} from "react";
 
 function App() {
-  return (
-    <BrowserRouter>
-    	<div className="App">
-		<Header />
-		<Navbar />
-		<Routes>
-			<Route path="/" element={<Homepage />}></Route>
-			<Route path="/booking" element={<BookingPage />}></Route>
-			<Route path="/booking/confirmed" element={<ConfirmedBooking />}></Route>
-		</Routes>
-		<Footer />
-   	 </div>
-    </BrowserRouter>
-  );
+	const [displayMobileNav, setDisplayMobileNav] = useState(false);	
+
+	return (
+		<BrowserRouter>
+		<div className="App">
+			<Header displayMobileNav={displayMobileNav} setDisplayMobileNav={setDisplayMobileNav} />
+			<Navbar displayMobileNav={displayMobileNav} />
+			<Routes>
+				<Route path="/" element={<Homepage />}></Route>
+				<Route path="/booking" element={<BookingPage />}></Route>
+				<Route path="/booking/confirmed" element={<ConfirmedBooking />}></Route>
+			</Routes>
+			<Footer />
+   	 	</div>
+    		</BrowserRouter>
+  	);
 }
 
 export default App;

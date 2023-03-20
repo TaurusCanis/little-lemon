@@ -31,20 +31,34 @@ export default function Homepage() {
 	return (
 		<main>
 			<section id="hero">
-				<h1>Little Lemon</h1>
-				<h2>Chicago</h2>
-				<p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-				<ButtonLink url="/booking">Reserve a Table</ButtonLink>
+				<div id="hero-left">
+					<h1>Little Lemon</h1>
+					<h2>Chicago</h2>
+					<p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
+					<ButtonLink url="/booking">Reserve a Table</ButtonLink>
+				</div>
 				<img src={SmallPlates} />
 			</section>
 			<section id="specials">
-				<h2>Specials</h2>
-				<button>Online Menu</button>
-				<SpecialsCard data={specials[0]} />
-				<SpecialsCard data={specials[1]} />
-				<SpecialsCard data={specials[2]} />
+				<div id="specials-header">
+					<h2>Specials</h2>
+					<button>Online Menu</button>
+				</div>
+				<div id="specials-cards-container">
+					<SpecialsCard data={specials[0]} />
+					<SpecialsCard data={specials[1]} />
+					<SpecialsCard data={specials[2]} />
+				</div>
 			</section>
 			<Testimonials />
+			<section id="info-section">	
+				<div id="info-left">
+					<h1>Little Lemon</h1>
+					<h2>Chicago</h2>
+					<p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
+				</div>
+				<img src={bruschetta} />
+			</section>
 		</main>
 	);
 }

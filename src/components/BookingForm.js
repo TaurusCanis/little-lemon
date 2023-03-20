@@ -69,7 +69,7 @@ export default function BookingForm(props) {
 	
 	function submitForm(e) {
 		e.preventDefault();
-		if (submitAPI(formFields)) navigate("confirmed");
+		if (submitAPI(formFields)) navigate("confirmed", { state: formFields });
 		return;
 	}
 	
@@ -99,7 +99,7 @@ export default function BookingForm(props) {
 				<option>Birthday</option>
 				<option>Anniversay</option>
 			</select>	
-			<input type="submit" value="Book Now" disabled={!isValid()}/>
+			<input type="submit" className="button" value="Book Now" disabled={!isValid()}/>
 		</form>
 	);
 }
